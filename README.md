@@ -10,7 +10,7 @@ I also implemented Pagination on the the table. You can go through the whole tab
 
 The Go to total button takes you to the second page 
 
-![image info](./public/Totalpage.png)
+
 
 Here I implemented a detail calculation on each of the data based on there individual amounts
 
