@@ -17,9 +17,9 @@ Here I implemented a detail calculation on each of the data based on there indiv
 The Dropdown select shows the data from the other sections too
 
 ## How to run
-`yarn install`  return
-`yarn start`  return
-`yarn Test` - To run tests  return
+`yarn install`  
+`yarn start`  
+`yarn Test` - To run tests  
 
 
 ## Notable External Packages I used 
@@ -39,10 +39,10 @@ I used this for getting and parsing the csv data
 
 ### Others
 
-Eslint - for Code linting  return
-Prettier -  for better Code Formatting  return
-React-router-dom - for navigation  return
-Jest - for Testing  return
+Eslint - for Code linting  
+Prettier -  for better Code Formatting  
+React-router-dom - for navigation  
+Jest - for Testing  
 
 
 ## Challenges
