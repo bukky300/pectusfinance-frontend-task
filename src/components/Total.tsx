@@ -37,14 +37,14 @@ function Total({ fields, data }: Prop) {
         <div>
           <button
             type="button"
-            onClick={() => navigate(-1)}
+            onClick={() => navigate("/")}
             className="bg-blue-600 px-4 py-2.5 rounded text-xs text-white
             hover:bg-blue-700 hover:shadow-lg"
           >
             Back
           </button>
         </div>
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           <p className="mr-4">Total Expenses By:</p>
           <select
             className=" px-2 py-1 bg-gray-200 uppercase outline-none"

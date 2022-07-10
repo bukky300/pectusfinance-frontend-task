@@ -38,7 +38,7 @@ function Table({ columns, data }: Props) {
   return (
     <div
       data-testid="content"
-      className="flex justify-center items-center mt-5"
+      className="flex justify-center items-center my-5"
     >
       <div className="flex flex-col w-4/5">
         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
