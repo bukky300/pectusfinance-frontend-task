@@ -12,6 +12,7 @@ describe("DropDown Component Test", () => {
     render(<DropDown category="departments" />);
     expect(screen.getByText("IT")).toBeInTheDocument();
   });
+
   it("renders member_name total", () => {
     helpers.getValues = jest
       .fn()
@@ -19,6 +20,7 @@ describe("DropDown Component Test", () => {
     render(<DropDown category="member_name" />);
     expect(screen.getByText("Sam")).toBeInTheDocument();
   });
+
   it("renders date total", () => {
     helpers.getValues = jest
       .fn()
@@ -26,6 +28,7 @@ describe("DropDown Component Test", () => {
     render(<DropDown category="date" />);
     expect(screen.getByText("3/8/2021")).toBeInTheDocument();
   });
+
   it("renders project_name total", () => {
     helpers.getValues = jest
       .fn()

@@ -2,6 +2,7 @@
 
 const getValues = (category, data) => {
   const values = [];
+  // reduce the data array into categories
   const newData = data.reduce(
     (cache, expense) => ({
       ...cache,
@@ -12,7 +13,7 @@ const getValues = (category, data) => {
     }),
     {}
   );
-
+  //  loops thru the categories and adds the individual amounts
   for (const key in newData) {
     if (newData.hasOwnProperty(key)) {
       const result = newData[key].reduce((acc, obj) => {
@@ -25,8 +26,9 @@ const getValues = (category, data) => {
   return values;
 };
 
-const exportFunctions = {
+// had to export this function this way to be able to mock it in jest test
+const helpers = {
   getValues,
 };
 
-export default exportFunctions;
+export default helpers;

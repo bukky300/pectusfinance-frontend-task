@@ -17,6 +17,7 @@ function App() {
   const [fields, setFields] = useState<string[]>([]);
   const { readRemoteFile } = usePapaParse();
 
+  // fetch the csv data and store in different states
   useEffect(() => {
     readRemoteFile(
       "https://raw.githubusercontent.com/Pectus-Finance/hiring-exercises/master/frontend/expanses.csv",

@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import helpers from "../components/util/util";
 
 import Total from "../components/Total";

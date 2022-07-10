@@ -10,25 +10,21 @@ interface Prop {
 
 function Total({ fields, data }: Prop) {
   const expensesCtx = useContext(ExpensesContext);
+  // dropdown state
   const [value, setValue] = useState("departments");
-  const [departmentVisible, setDepartmentVisible] = useState(false);
-  const [projectnameVisible, setProjectname] = useState(false);
-  const [dateVisible, setDateVisible] = useState(false);
-  const [nameVisible, setNameVisible] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
   const options = fields.filter((field) => field !== "amount");
-
+  // add data to context
   useEffect(() => {
     expensesCtx.setExpense(data);
   }, [data, expensesCtx]);
 
+  // sets value state according to selected option in dropdown
   useEffect(() => {
-    value === "departments"
-      ? setDepartmentVisible(true)
-      : setDepartmentVisible(false);
-    value === "project_name" ? setProjectname(true) : setProjectname(false);
-    value === "date" ? setDateVisible(true) : setDateVisible(false);
-    value === "member_name" ? setNameVisible(true) : setNameVisible(false);
-  }, [value]);
+    if (options.includes(value)) {
+      setDropdown(true);
+    }
+  }, [value, options]);
 
   return (
     <div
@@ -48,10 +44,7 @@ function Total({ fields, data }: Prop) {
           ))}
         </select>
       </div>
-      {departmentVisible && <DropDown category={value} />}
-      {projectnameVisible && <DropDown category={value} />}
-      {dateVisible && <DropDown category={value} />}
-      {nameVisible && <DropDown category={value} />}
+      {dropdown && <DropDown category={value} />}
     </div>
   );
 }

@@ -9,8 +9,10 @@ interface Props {
 
 function DropDown({ category }: Props) {
   const expensesCtx = useContext(ExpensesContext);
+  // helper function to get the values retuns an array of objects with each data and amount
   const values = helpers.getValues(category, expensesCtx.data);
 
+  // Calculates the total amount
   const totalAmounts: number[] = [];
   values?.map((value) => totalAmounts.push(value.result));
   const total = totalAmounts.reduce((a, b) => a + b, 0);

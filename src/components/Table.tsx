@@ -1,9 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useTable, useSortBy, usePagination, Column } from "react-table";
 
 import { Expense } from "../types/model";
-import { ExpensesContext } from "../store/expenses-context";
 
 interface Props {
   columns: {}[];
@@ -11,13 +10,9 @@ interface Props {
 }
 
 function Table({ columns, data }: Props) {
-  const expensesCtx = useContext(ExpensesContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    expensesCtx.setExpense(data);
-  }, [data, expensesCtx]);
-
+  // react-table hook
   const tableInstance = useTable(
     {
       columns: columns as Column<{}>[],
@@ -27,6 +22,7 @@ function Table({ columns, data }: Props) {
     usePagination
   );
 
+  // destructuring react-table functions
   const {
     getTableProps,
     getTableBodyProps,

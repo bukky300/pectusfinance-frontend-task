@@ -37,11 +37,6 @@ function ExpensesContextProvider({ children }: Props) {
     dispatch({ type: "SET", payload: data });
   }
 
-  //   const value = {
-  //     data: expenseState,
-  //     setExpense,
-  //   };
-
   const value = useMemo(
     () => ({
       data: expenseState,
