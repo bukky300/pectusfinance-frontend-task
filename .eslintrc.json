@@ -21,7 +21,11 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
   "ignorePatterns": [
     "tailwind.config.js",
     "postcss.config.js",
@@ -29,8 +33,12 @@
     "**/vendor/*.js"
   ],
   "rules": {
-    "@typescript-eslint/no-unused-vars": ["off"],
-    "no-restricted-syntax": ["off"],
+    "@typescript-eslint/no-unused-vars": [
+      "off"
+    ],
+    "no-restricted-syntax": [
+      "off"
+    ],
     // "prettier/prettier": 0,
     "@typescript-eslint/no-unused-expressions": [
       "error",
@@ -40,9 +48,18 @@
         "allowTaggedTemplates": false
       }
     ],
-    "react/jsx-props-no-spreading": ["off"],
-    "no-nested-ternary": ["off"],
-    "react/require-default-props": ["off"],
-    "no-prototype-builtins": ["off"]
+    "react/jsx-props-no-spreading": [
+      "off"
+    ],
+    "no-nested-ternary": [
+      "off"
+    ],
+    "react/require-default-props": [
+      "off"
+    ],
+    "no-prototype-builtins": [
+      "off"
+    ]
+    
   }
 }

@@ -2,11 +2,11 @@
 
 Below is a picture of the firstpage displaying Table with the expenses data
 
-![image info](./public/Homepage.png)
+![image info](./public/NewHomepage.png)
 
 Clicking on each header column will format the table in ascending/descending order according to the data in that header
 
-I also implemented Pagination on the the table. You can go through the whole table by clicking on the Next and Previous buttons
+I also implemented Pagination on the the table. You can go through the whole table by clicking on the page number
 
 The Go to total button takes you to the second page 
 
@@ -24,9 +24,6 @@ The Dropdown select shows the data from the other sections too
 
 ## Notable External Packages I used 
 
-### React-Table
-
-I used this package because it helped me implement the table and its features better and faster therefore making my code more maintainable
 
 ### Tailwind-css
 

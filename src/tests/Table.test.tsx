@@ -3,12 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Table from "../components/Table";
 
-const column = [
-  {
-    Header: "department",
-    accessor: "IT",
-  },
-];
+const column = ["department", "project_name"];
 
 const data = [
   {
