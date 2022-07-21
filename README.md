@@ -6,7 +6,7 @@ Below is a picture of the firstpage displaying Table with the expenses data
 
 Clicking on each header column will format the table in ascending/descending order according to the data in that header
 
-I also implemented Pagination on the the table. You can go through the whole table by clicking on the page number
+I also implemented Pagination on the the table. You can go through the whole table by clicking on the next and prev buttons
 
 The Go to total button takes you to the second page 
 
