@@ -4,10 +4,17 @@ interface Props {
   DataPerPage: number;
   totalData: number;
   currentPage: number;
-  paginate: (number: number) => void;
+  next: () => void;
+  prev: () => void;
 }
 
-function Pagination({ DataPerPage, totalData, currentPage, paginate }: Props) {
+function Pagination({
+  DataPerPage,
+  totalData,
+  currentPage,
+  next,
+  prev,
+}: Props) {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalData / DataPerPage); i += 1) {
@@ -15,24 +22,34 @@ function Pagination({ DataPerPage, totalData, currentPage, paginate }: Props) {
   }
 
   return (
-    <ul className=" flex rounded border border-blue-300">
-      {pageNumbers.map((number) => (
-        <li
-          key={number}
-          className="  border-x border-blue-300 hover:text-blue-300 "
-        >
-          <button
-            type="button"
-            onClick={() => paginate(number)}
-            className={` px-2 py-1 ${
-              currentPage === number ? "text-blue-300" : ""
-            }`}
-          >
-            {number}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <div>
+      <button
+        type="button"
+        onClick={() => prev()}
+        className={` px-4 py-2.5 rounded text-xs  mr-2
+                hover:bg-blue-700 hover:shadow-lg ${
+                  currentPage === 1
+                    ? "bg-gray-100 pointer-events-none "
+                    : "bg-blue-600 text-white"
+                } `}
+        disabled={currentPage === 1}
+      >
+        Prev
+      </button>
+      <button
+        type="button"
+        onClick={() => next()}
+        className={` px-4 py-2.5 rounded text-xs
+                hover:bg-blue-700 hover:shadow-lg ${
+                  currentPage === pageNumbers.length
+                    ? "bg-gray-100 pointer-events-none "
+                    : "bg-blue-600 text-white"
+                } `}
+        disabled={currentPage === pageNumbers.length}
+      >
+        Next
+      </button>
+    </div>
   );
 }
 

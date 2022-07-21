@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable import/no-named-as-default */
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Pagination from "./Pagination";
@@ -12,9 +13,10 @@ function Table({ columns, data }: Props) {
   const [tableData, setTableData] = useState(data);
   // sorting state
   const [order, setOrder] = useState("ASC");
+  const [sortedColumn, setSortedColumn] = useState("");
   // pagination states
   const [currentPage, setCurrentPage] = useState(1);
-  const [DataPerPage, setDataPerPage] = useState(10);
+  const [DataPerPage] = useState(10);
 
   const navigate = useNavigate();
 
@@ -24,12 +26,21 @@ function Table({ columns, data }: Props) {
   const currentData = tableData.slice(indexOfFirstData, indexOfLastData);
 
   // change Page
-  const paginate = (pageNumber: number) => {
-    setCurrentPage(pageNumber);
+  // const paginate = (pageNumber: number) => {
+  //   setCurrentPage(pageNumber);
+  // };
+
+  const goToPrevpage = () => {
+    setCurrentPage((page) => page - 1);
+  };
+
+  const goToNextpage = () => {
+    setCurrentPage((page) => page + 1);
   };
 
   // Sort either by ascending or descending
   const sort = (col: string) => {
+    setSortedColumn(col);
     if (order === "ASC") {
       if (col === "amount") {
         const sortedData = data.sort((a, b) => {
@@ -94,6 +105,13 @@ function Table({ columns, data }: Props) {
                         className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
                       >
                         {col}
+                        <span>
+                          {sortedColumn === col
+                            ? order === "ASC"
+                              ? " 🔼"
+                              : " 🔽"
+                            : ""}
+                        </span>
                       </th>
                     ))}
                   </tr>
@@ -121,7 +139,8 @@ function Table({ columns, data }: Props) {
             <Pagination
               DataPerPage={DataPerPage}
               totalData={tableData.length}
-              paginate={paginate}
+              next={goToNextpage}
+              prev={goToPrevpage}
               currentPage={currentPage}
             />
           </div>
