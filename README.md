@@ -2,7 +2,7 @@
 
 Below is a picture of the firstpage displaying Table with the expenses data
 
-![image info](./public/NewHomepage.png)
+![image info](./public/homepage.png)
 
 Clicking on each header column will format the table in ascending/descending order according to the data in that header
 
