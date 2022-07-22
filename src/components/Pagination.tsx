@@ -8,7 +8,7 @@ interface Props {
   prev: () => void;
 }
 
-function Pagination({
+export function Pagination({
   DataPerPage,
   totalData,
   currentPage,

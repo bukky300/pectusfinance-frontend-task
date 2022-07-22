@@ -25,11 +25,6 @@ function Table({ columns, data }: Props) {
   const indexOfFirstData = indexOfLastData - DataPerPage;
   const currentData = tableData.slice(indexOfFirstData, indexOfLastData);
 
-  // change Page
-  // const paginate = (pageNumber: number) => {
-  //   setCurrentPage(pageNumber);
-  // };
-
   const goToPrevpage = () => {
     setCurrentPage((page) => page - 1);
   };
@@ -42,6 +37,7 @@ function Table({ columns, data }: Props) {
   const sort = (col: string) => {
     setSortedColumn(col);
     if (order === "ASC") {
+      setOrder("DSC");
       if (col === "amount") {
         const sortedData = data.sort((a, b) => {
           return Number(a[col].replace(/[^0-9.-]+/g, "")) >
@@ -50,19 +46,17 @@ function Table({ columns, data }: Props) {
             : -1;
         });
         setTableData(sortedData);
-        setOrder("DSC");
       } else if (col === "date") {
         const sortedData = data.sort((a, b) => {
           return new Date(a[col]) > new Date(b[col]) ? 1 : -1;
         });
         setTableData(sortedData);
-        setOrder("DSC");
       } else {
         const sortedData = data.sort((a, b) => (a[col] > b[col] ? 1 : -1));
         setTableData(sortedData);
-        setOrder("DSC");
       }
     } else if (order === "DSC") {
+      setOrder("ASC");
       if (col === "amount") {
         const sortedData = data.sort((a, b) => {
           return Number(a[col].replace(/[^0-9.-]+/g, "")) <
@@ -71,17 +65,14 @@ function Table({ columns, data }: Props) {
             : -1;
         });
         setTableData(sortedData);
-        setOrder("ASC");
       } else if (col === "date") {
         const sortedData = data.sort((a, b) => {
           return new Date(a[col]) < new Date(b[col]) ? 1 : -1;
         });
         setTableData(sortedData);
-        setOrder("ASC");
       } else {
         const sortedData = data.sort((a, b) => (a[col] < b[col] ? 1 : -1));
         setTableData(sortedData);
-        setOrder("ASC");
       }
     }
   };
@@ -102,7 +93,7 @@ function Table({ columns, data }: Props) {
                       <th
                         onClick={() => sort(col)}
                         key={col}
-                        className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+                        className="text-sm font-medium cursor-pointer text-gray-900 px-6 py-4 text-left"
                       >
                         {col}
                         <span>
@@ -134,16 +125,14 @@ function Table({ columns, data }: Props) {
             </div>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-between">
-          <div className=" self-center">
-            <Pagination
-              DataPerPage={DataPerPage}
-              totalData={tableData.length}
-              next={goToNextpage}
-              prev={goToPrevpage}
-              currentPage={currentPage}
-            />
-          </div>
+        <div className="flex flex-row justify-between">
+          <Pagination
+            DataPerPage={DataPerPage}
+            totalData={tableData.length}
+            next={goToNextpage}
+            prev={goToPrevpage}
+            currentPage={currentPage}
+          />
           <div className=" self-center mt-2 md:mt-0 md:justify-self-end">
             <button
               type="button"
